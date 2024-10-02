@@ -110,7 +110,7 @@ export class RealtimeAPI extends RealtimeEventHandler {
        * Node.js
        */
       const moduleName = 'ws';
-      const wsModule = await import(/* webpackIgnore: true */ moduleName);
+      const wsModule = await import(/* @vite-ignore */ moduleName);
       const WebSocket = wsModule.default;
       const ws = new WebSocket(
         'wss://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview-2024-10-01',
