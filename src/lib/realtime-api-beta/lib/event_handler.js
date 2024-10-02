@@ -39,7 +39,7 @@ export class RealtimeEventHandler {
   on(eventName, callback) {
     this.eventHandlers[eventName] = this.eventHandlers[eventName] || [];
     this.eventHandlers[eventName].push(callback);
-    callback;
+    // callback;
   }
 
   /**
@@ -66,7 +66,7 @@ export class RealtimeEventHandler {
       const index = handlers.indexOf(callback);
       if (index === -1) {
         throw new Error(
-          `Could not turn off specified event listener for "${eventName}": not found as a listener`,
+          `Could not turn off specified event listener for "${eventName}": not found as a listener`
         );
       }
       handlers.splice(index, 1);
@@ -89,7 +89,7 @@ export class RealtimeEventHandler {
       const index = nextHandlers.indexOf(callback);
       if (index === -1) {
         throw new Error(
-          `Could not turn off specified next event listener for "${eventName}": not found as a listener`,
+          `Could not turn off specified next event listener for "${eventName}": not found as a listener`
         );
       }
       nextHandlers.splice(index, 1);

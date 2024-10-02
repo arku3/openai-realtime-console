@@ -22,18 +22,13 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
+    "lint": "eslint ./src/",
     "build": "tsc && vite build",
     "serve": "vite preview",
     "test": "vitest",
     "test:coverage": "vitest run --coverage --watch=false",
     "zip": "zip -r realtime-api-console.zip . -x 'node_modules' 'node_modules/*' 'node_modules/**' '.git' '.git/*' '.git/**' '.DS_Store' '*/.DS_Store' 'package-lock.json' 'bun.lockb' '*.zip' '*.tar.gz' '*.tar' '.env'",
     "relay": "nodemon ./relay-server/index.js"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -48,12 +43,16 @@
     ]
   },
   "devDependencies": {
+    "@eslint/js": "^9.11.1",
     "@types/jest": "^29.5.13",
     "@types/leaflet": "^1.9.12",
     "@types/node": "^22.7.4",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "@vitest/coverage-v8": "^2.1.1",
+    "eslint": "^9.11.1",
+    "eslint-plugin-react": "^7.37.1",
+    "globals": "^15.10.0",
     "jsdom": "^25.0.1",
     "nodemon": "^3.1.7",
     "vitest": "^2.1.1"

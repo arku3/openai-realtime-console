@@ -1,13 +1,3 @@
-/**
- * Change this if you want to connect to a local relay server!
- * This will require you to set OPENAI_API_KEY= in a `.env` file
- * You can run it with `npm run relay`, in parallel with `npm start`
- *
- * Simply switch the lines by commenting one and removing the other
- */
-// const USE_LOCAL_RELAY_SERVER_URL: string | undefined = 'http://localhost:8081';
-const USE_LOCAL_RELAY_SERVER_URL: string | undefined = void 0;
-
 import { useEffect, useRef, useCallback, useState } from 'react';
 
 import { RealtimeClient } from '../lib/realtime-api-beta/index.js';
@@ -22,6 +12,15 @@ import { Toggle } from '../components/toggle/Toggle';
 import { Map } from '../components/Map';
 
 import './ConsolePage.css';
+/**
+ * Change this if you want to connect to a local relay server!
+ * This will require you to set OPENAI_API_KEY= in a `.env` file
+ * You can run it with `npm run relay`, in parallel with `npm start`
+ *
+ * Simply switch the lines by commenting one and removing the other
+ */
+// const USE_LOCAL_RELAY_SERVER_URL: string | undefined = 'http://localhost:8081';
+const USE_LOCAL_RELAY_SERVER_URL: string | undefined = void 0;
 
 /**
  * Type for result from get_weather() function call
@@ -71,10 +70,10 @@ export function ConsolePage() {
    * - RealtimeClient (API client)
    */
   const wavRecorderRef = useRef<WavRecorder>(
-    new WavRecorder({ sampleRate: 24000 }),
+    new WavRecorder({ sampleRate: 24000 })
   );
   const wavStreamPlayerRef = useRef<WavStreamPlayer>(
-    new WavStreamPlayer({ sampleRate: 24000 }),
+    new WavStreamPlayer({ sampleRate: 24000 })
   );
   const clientRef = useRef<RealtimeClient>(
     new RealtimeClient(
@@ -83,8 +82,8 @@ export function ConsolePage() {
         : {
             apiKey: apiKey,
             dangerouslyAllowAPIKeyInBrowser: true,
-          },
-    ),
+          }
+    )
   );
 
   /**
@@ -285,7 +284,7 @@ export function ConsolePage() {
    */
   useEffect(() => {
     const conversationEls = [].slice.call(
-      document.body.querySelectorAll('[data-conversation-content]'),
+      document.body.querySelectorAll('[data-conversation-content]')
     );
     for (const el of conversationEls) {
       const conversationEl = el as HTMLDivElement;
@@ -327,7 +326,7 @@ export function ConsolePage() {
               '#0099ff',
               10,
               0,
-              8,
+              8
             );
           }
         }
@@ -349,7 +348,7 @@ export function ConsolePage() {
               '#009900',
               10,
               0,
-              8,
+              8
             );
           }
         }
@@ -405,7 +404,7 @@ export function ConsolePage() {
           return newKv;
         });
         return { ok: true };
-      },
+      }
     );
     client.addTool(
       {
@@ -435,7 +434,7 @@ export function ConsolePage() {
         setMarker({ lat, lng, location });
         setCoords({ lat, lng, location });
         const result = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,wind_speed_10m`,
+          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,wind_speed_10m`
         );
         const json = await result.json();
         const temperature = {
@@ -448,7 +447,7 @@ export function ConsolePage() {
         };
         setMarker({ lat, lng, location, temperature, wind_speed });
         return json;
-      },
+      }
     );
 
     // handle realtime events from client + server for event logging
@@ -481,7 +480,7 @@ export function ConsolePage() {
         const wavFile = await WavRecorder.decode(
           item.formatted.audio,
           24000,
-          24000,
+          24000
         );
         item.formatted.file = wavFile;
       }
