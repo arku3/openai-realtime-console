@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-import './Toggle.scss';
+import './Toggle.css';
 
 export function Toggle({
   defaultValue = false,
