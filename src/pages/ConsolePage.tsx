@@ -1,7 +1,7 @@
 import { useEffect, useRef, useCallback, useState } from 'react';
 
-import { RealtimeClient } from '../lib/realtime-api-beta/index.js';
-import { ItemType } from '../lib/realtime-api-beta/dist/lib/client.js';
+import { RealtimeClient } from '@openai/realtime-api-beta';
+import { ItemType } from '@openai/realtime-api-beta/dist/lib/client.js';
 import { WavRecorder, WavStreamPlayer } from '../lib/wavtools/index.js';
 import { instructions } from '../utils/conversation_config.js';
 import { WavRenderer } from '../utils/wav_renderer';

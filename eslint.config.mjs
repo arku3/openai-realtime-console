@@ -20,7 +20,6 @@ const config = [
     },
     ignores: [
       'node_modules/',
-      'src/lib/realtime-api-beta/dist/',
       'src/lib/wavtools/dist/',
     ],
     settings: {
